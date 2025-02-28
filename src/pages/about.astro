@@ -1,0 +1,188 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
+import Hero from '../components/ui/Hero.vue';
+---
+
+<MainLayout
+  title="About Us | Buttered Buns"
+  description="Learn about our bakery, our story, and our commitment to quality artisanal bread"
+>
+  <Header slot="header" client:load />
+
+  <Hero
+    title="Our Story"
+    subtitle="Passion for traditional baking methods and quality ingredients"
+    client:load
+  />
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Our Beginnings</h2>
+          <p>
+            Buttered Buns began in 2018 when our founder, Jane Dough, decided to turn her passion
+            for artisanal bread into a business. After years of perfecting recipes in her home
+            kitchen, Jane opened our first location with a simple mission: to create exceptional
+            bread using traditional methods and the finest ingredients.
+          </p>
+          <p>
+            What started as a small operation has grown into a beloved local bakery, but our
+            commitment to quality and craftsmanship remains unchanged. Every loaf is still shaped by
+            hand, fermented properly, and baked to perfection.
+          </p>
+
+          <h2>Our Philosophy</h2>
+          <p>
+            We believe that great bread requires time, attention, and respect for tradition. That's
+            why we use slow fermentation methods, which not only create complex flavors but also
+            make our bread more digestible and nutritious.
+          </p>
+          <p>
+            We source our ingredients from local farmers whenever possible, supporting sustainable
+            agriculture and ensuring the freshest flavors in every bite.
+          </p>
+        </div>
+        <div class="about-image">
+          <div class="image-placeholder">[Bakery Image]</div>
+          <p class="image-caption">Our bakery in downtown Flour City</p>
+        </div>
+      </div>
+
+      <div class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-image-placeholder">[Team Member]</div>
+            <h3>Jane Dough</h3>
+            <p class="member-title">Founder & Head Baker</p>
+            <p>
+              With over 15 years of baking experience, Jane leads our team with passion and
+              expertise.
+            </p>
+          </div>
+          <div class="team-member">
+            <div class="member-image-placeholder">[Team Member]</div>
+            <h3>John Kneads</h3>
+            <p class="member-title">Master Baker</p>
+            <p>
+              John specializes in sourdough and long-fermented breads, bringing artistry to every
+              loaf.
+            </p>
+          </div>
+          <div class="team-member">
+            <div class="member-image-placeholder">[Team Member]</div>
+            <h3>Mary Flour</h3>
+            <p class="member-title">Pastry Chef</p>
+            <p>
+              Mary creates our delicious pastries, combining traditional techniques with innovative
+              flavors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" client:visible />
+</MainLayout>
+
+<style>
+  .about-content {
+    padding: var(--space-xl) 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .about-text h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-text p {
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .image-placeholder {
+    background-color: var(--color-secondary);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .image-caption {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text);
+    opacity: 0.8;
+  }
+
+  .team-section {
+    margin-top: var(--space-xl);
+  }
+
+  .team-section h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .member-image-placeholder {
+    background-color: var(--color-secondary);
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin: 0 auto var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-weight: bold;
+  }
+
+  .team-member h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .member-title {
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      order: -1;
+      margin-bottom: var(--space-lg);
+    }
+  }
+</style>

@@ -1,0 +1,127 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
+import Hero from '../components/ui/Hero.vue';
+import Button from '../components/core/Button.vue';
+---
+
+<MainLayout
+  title="Buttered Buns | Artisinal Bakery"
+  description="Handcrafted artisanal bread baked with love and tradition"
+>
+  <Header slot="header" client:load />
+  <Hero
+    title="Artisinal Bread Baked with Love"
+    subtitle="Handcrafted with traditional methods and the finest ingredients"
+    buttonText="View Our Products"
+    buttonLink="/portfolio"
+    client:load
+  />
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Our Specialties</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🍞</div>
+          <h3>Sourdough</h3>
+          <p>
+            Our signature sourdough is fermented for 24 hours for maximum flavor and digestibility.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥖</div>
+          <h3>Baguettes</h3>
+          <p>Traditional French baguettes with a crispy crust and soft, airy interior.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🥐</div>
+          <h3>Pastries</h3>
+          <p>Buttery, flaky pastries made from scratch using European-style butter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to taste the difference?</h2>
+        <p>Visit our bakery or order online for pickup and local delivery.</p>
+        <div class="cta-buttons">
+          <a href="/contact">
+            <Button variant="accent" size="large" client:visible>Contact Us</Button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" client:load />
+</MainLayout>
+
+<style>
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .features {
+    padding: var(--space-xl) 0;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .feature-card {
+    background-color: white;
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .feature-card h3 {
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .cta {
+    background-color: var(--color-secondary);
+    padding: var(--space-xl) 0;
+    margin: var(--space-xl) 0;
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .cta-content p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+</style>

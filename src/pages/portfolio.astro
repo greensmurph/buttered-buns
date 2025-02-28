@@ -1,0 +1,240 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
+import Hero from '../components/ui/Hero.vue';
+---
+
+<MainLayout
+  title="Portfolio | Buttered Buns"
+  description="Explore our selection of artisanal breads, pastries, and baked goods"
+>
+  <Header slot="header" client:load />
+
+  <Hero title="Our Products" subtitle="Handcrafted with love and tradition" client:load />
+
+  <section class="portfolio-content">
+    <div class="container">
+      <div class="portfolio-filters">
+        <button class="filter-button active">All</button>
+        <button class="filter-button">Sourdough</button>
+        <button class="filter-button">Baguettes</button>
+        <button class="filter-button">Pastries</button>
+        <button class="filter-button">Specialty</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-image-placeholder">[Sourdough Bread]</div>
+          <h3>Classic Sourdough</h3>
+          <p>Our signature sourdough with a perfect balance of tang and depth.</p>
+          <p class="portfolio-price">$7.50</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image-placeholder">[Whole Wheat Bread]</div>
+          <h3>Whole Wheat Sourdough</h3>
+          <p>Nutritious whole wheat sourdough with a touch of honey.</p>
+          <p class="portfolio-price">$8.00</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image-placeholder">[Baguette]</div>
+          <h3>Traditional Baguette</h3>
+          <p>Crispy crust with a light, airy interior. Perfect with any meal.</p>
+          <p class="portfolio-price">$4.50</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image-placeholder">[Croissant]</div>
+          <h3>Butter Croissant</h3>
+          <p>Flaky, buttery layers that melt in your mouth.</p>
+          <p class="portfolio-price">$3.75</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image-placeholder">[Olive Bread]</div>
+          <h3>Olive Rosemary Loaf</h3>
+          <p>Mediterranean-inspired bread with Kalamata olives and fresh rosemary.</p>
+          <p class="portfolio-price">$8.50</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-image-placeholder">[Cinnamon Roll]</div>
+          <h3>Cinnamon Roll</h3>
+          <p>Soft, swirled perfection with our signature cream cheese frosting.</p>
+          <p class="portfolio-price">$4.25</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>
+              "The best sourdough I've ever tasted. The texture and flavor are absolutely perfect!"
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <p class="author-name">Sarah Johnson</p>
+            <p class="author-title">Loyal Customer</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>
+              "Their croissants are as good as any I've had in Paris. Buttery, flaky, and absolutely
+              delicious."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <p class="author-name">Michael Chen</p>
+            <p class="author-title">Food Blogger</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>
+              "I ordered catering for my office and everyone was impressed. Fresh, delicious, and
+              professionally presented."
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <p class="author-name">Emily Rodriguez</p>
+            <p class="author-title">Marketing Director</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" client:visible />
+</MainLayout>
+
+<style>
+  .portfolio-content {
+    padding: var(--space-xl) 0;
+  }
+
+  .portfolio-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .filter-button {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-button:hover,
+  .filter-button.active {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .portfolio-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .portfolio-image-placeholder {
+    background-color: var(--color-secondary);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-weight: bold;
+  }
+
+  .portfolio-item h3 {
+    padding: var(--space-md) var(--space-md) var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  .portfolio-item p {
+    padding: 0 var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .portfolio-price {
+    font-weight: bold;
+    color: var(--color-accent);
+    padding-bottom: var(--space-md) !important;
+  }
+
+  .testimonials {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-background);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .testimonial-card {
+    background-color: white;
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-content {
+    margin-bottom: var(--space-md);
+    font-style: italic;
+  }
+
+  .testimonial-content p {
+    position: relative;
+    padding: 0 var(--space-md);
+  }
+
+  .testimonial-content p::before,
+  .testimonial-content p::after {
+    content: '"';
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .author-name {
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+
+  .author-title {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    opacity: 0.8;
+  }
+</style>

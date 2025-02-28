@@ -1,0 +1,225 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
+import Hero from '../components/ui/Hero.vue';
+import Button from '../components/core/Button.vue';
+---
+
+<MainLayout
+  title="Services | Buttered Buns"
+  description="Explore our bakery services including custom orders, catering, and baking classes"
+>
+  <Header slot="header" client:load />
+
+  <Hero
+    title="Our Services"
+    subtitle="From daily fresh bread to special occasions, we've got you covered"
+    client:load
+  />
+
+  <section class="services-content">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🍞</div>
+          <h3>Daily Fresh Bread</h3>
+          <p>
+            Our bakery offers a variety of fresh bread daily, from classic sourdough to specialty
+            loaves. Come early for the best selection!
+          </p>
+          <ul class="service-features">
+            <li>Artisanal sourdough</li>
+            <li>Whole grain options</li>
+            <li>Specialty flavored breads</li>
+            <li>Baguettes and rolls</li>
+          </ul>
+          <div class="service-action">
+            <a href="/portfolio">
+              <Button variant="outline" client:visible>View Products</Button>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎂</div>
+          <h3>Custom Orders</h3>
+          <p>
+            Need something special? We take custom orders for special occasions, dietary needs, or
+            just because you're craving something specific.
+          </p>
+          <ul class="service-features">
+            <li>Birthday and celebration breads</li>
+            <li>Gluten-free options</li>
+            <li>Vegan alternatives</li>
+            <li>Seasonal specialties</li>
+          </ul>
+          <div class="service-action">
+            <a href="/contact">
+              <Button variant="outline" client:visible>Request Custom Order</Button>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🍽️</div>
+          <h3>Catering</h3>
+          <p>
+            Make your event special with our catering services. We provide fresh bread, pastries,
+            and more for events of any size.
+          </p>
+          <ul class="service-features">
+            <li>Corporate events</li>
+            <li>Weddings and celebrations</li>
+            <li>Breakfast meetings</li>
+            <li>Custom menu planning</li>
+          </ul>
+          <div class="service-action">
+            <a href="/contact">
+              <Button variant="outline" client:visible>Inquire About Catering</Button>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👨‍🍳</div>
+          <h3>Baking Classes</h3>
+          <p>
+            Learn the art of bread making from our expert bakers. We offer classes for all skill
+            levels, from beginners to advanced bakers.
+          </p>
+          <ul class="service-features">
+            <li>Sourdough basics</li>
+            <li>Advanced techniques</li>
+            <li>Pastry workshops</li>
+            <li>Private group classes</li>
+          </ul>
+          <div class="service-action">
+            <a href="/contact">
+              <Button variant="outline" client:visible>Book a Class</Button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="container">
+      <h2 class="section-title">Our Process</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Selection of Ingredients</h3>
+          <p>
+            We source the finest organic flours, natural leavens, and locally-sourced ingredients.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Slow Fermentation</h3>
+          <p>
+            Our dough ferments for 24-48 hours, developing complex flavors and improved
+            digestibility.
+          </p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Hand Shaping</h3>
+          <p>Each loaf is carefully shaped by hand to ensure perfect texture and appearance.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Artisanal Baking</h3>
+          <p>Baked in traditional stone ovens for the perfect crust and crumb structure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" client:visible />
+</MainLayout>
+
+<style>
+  .services-content {
+    padding: var(--space-xl) 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    background-color: white;
+    padding: var(--space-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .service-card h3 {
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .service-features {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+  }
+
+  .service-features li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-action {
+    margin-top: var(--space-lg);
+  }
+
+  .process-section {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-background);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .process-step {
+    text-align: center;
+    padding: var(--space-md);
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .process-step h3 {
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+</style>
