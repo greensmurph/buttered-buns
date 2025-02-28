@@ -19,7 +19,6 @@ const Button = defineProps({
     default: false,
   },
 });
-export default Button;
 </script>
 
 <template>

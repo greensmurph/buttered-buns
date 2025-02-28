@@ -22,7 +22,6 @@ const Image = defineProps({
     validator: (value: string) => ['lazy', 'eager'].includes(value),
   },
 });
-export default Image;
 </script>
 <template>
   <img
